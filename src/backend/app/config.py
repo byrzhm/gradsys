@@ -15,11 +15,6 @@ class Config:
     )  # SQLite数据库
     SUBMIT_FOLDER = os.environ.get("SUBMIT_FOLDER", "/var/submit")  # 上传文件的保存路径
 
-    # 评分脚本配置
-    GRADING_SCRIPT_PATH = os.environ.get(
-        "GRADING_SCRIPT_PATH", "/var/scripts/grading.sh"
-    )
-
     # Docker配置
     GRADING_IMAGE = os.environ.get(
         "GRADING_IMAGE", "grading-image:latest"

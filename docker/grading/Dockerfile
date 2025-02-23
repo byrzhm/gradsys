@@ -9,4 +9,7 @@ RUN apt-get update && \
 
 COPY var/labs /app
 
+RUN mkdir -p /scripts
+COPY docker/grading/grading.sh /scripts/grading.sh
+
 CMD [ "bash" ]

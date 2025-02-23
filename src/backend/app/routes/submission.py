@@ -31,7 +31,7 @@ def handle_submission():
 
     # 启动异步任务
     process_submission.delay(submission.id, student_id, file.read())
-    return jsonify(message="提交已接收", submission_id=submission.id)
+    return jsonify(message="Submission received", submission_id=submission.id)
 
 
 @shared_task
@@ -52,8 +52,7 @@ def process_submission(submission_id: int, student_id: str, file_data):
 
             # 运行评分容器
             result = run_grading(
-                submission_code_path=tmpdir,
-                grading_script_path=current_app.config["GRADING_SCRIPT_PATH"],
+                submission_code_dir=tmpdir,
                 grading_image=current_app.config["GRADING_IMAGE"],
             )
             score = parse_result(result)
