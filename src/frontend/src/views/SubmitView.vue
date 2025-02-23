@@ -70,5 +70,17 @@ const submitAssignment = async () => {
   formData.append('file', file.value)
 
   // 后端API
+  const response = await fetch('/api/v1/submit', {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    alert("提交失败");
+  } else {
+    alert("提交成功");
+  }
+
+  uploading.value = false;
 }
 </script>

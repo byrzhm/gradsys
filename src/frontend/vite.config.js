@@ -17,4 +17,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    allowedHosts: ['aqua'],
+    proxy: {
+      '/api/v1': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      }
+    }
+  }
 })
